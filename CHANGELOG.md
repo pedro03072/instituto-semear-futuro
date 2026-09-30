@@ -2,7 +2,7 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
-## [Não lançado]
+## [1.0.0] — 30/09/2026 · Experiência Prática IV
 
 ### Adicionado
 - Modo escuro e modo de alto contraste, com preferência salva e respeito a `prefers-color-scheme`.
