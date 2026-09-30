@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300">
+  <rect width="480" height="300" rx="16" fill="#e3f0e8"/>
+  <rect y="230" width="480" height="70" fill="#b8d9c4"/>
+  <circle cx="400" cy="60" r="30" fill="#f2c14e"/>
+  <!-- horta -->
+  <g fill="#1f6f50">
+    <path d="M60 230c0-20 10-32 25-34-2 16-10 28-25 34z"/>
+    <path d="M60 230c0-18-9-28-22-30 2 14 9 24 22 30z"/>
+    <path d="M420 230c0-20 10-32 25-34-2 16-10 28-25 34z"/>
+    <path d="M420 230c0-18-9-28-22-30 2 14 9 24 22 30z"/>
+  </g>
+  <!-- pessoas -->
+  <g>
+    <circle cx="160" cy="120" r="22" fill="#8a5a3b"/>
+    <rect x="132" y="146" width="56" height="84" rx="20" fill="#1f6f50"/>
+    <circle cx="240" cy="150" r="17" fill="#c68b5e"/>
+    <rect x="219" y="170" width="42" height="60" rx="16" fill="#f2c14e"/>
+    <circle cx="320" cy="120" r="22" fill="#e0b18a"/>
+    <rect x="292" y="146" width="56" height="84" rx="20" fill="#154d38"/>
+  </g>
+  <!-- cesta -->
+  <rect x="206" y="196" width="68" height="34" rx="6" fill="#8a5a3b"/>
+  <circle cx="222" cy="194" r="8" fill="#d9534f"/><circle cx="240" cy="190" r="8" fill="#f2c14e"/><circle cx="258" cy="194" r="8" fill="#6aa84f"/>
+</svg>
