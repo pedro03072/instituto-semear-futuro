@@ -81,7 +81,8 @@ async function main() {
     .replace(/\s*<script src="\.\.\/js\/[^"]+" defer><\/script>/g, '')     // remove os 20 scripts
     .replace('<script src="../js/components/tema.js"></script>', '<script src="assets/tema.min.js"></script>')
     .replace('<link rel="stylesheet" href="../css/style.css">',
-      '<link rel="stylesheet" href="assets/estilo.min.css">\n  <script src="assets/chart.umd.min.js" defer></script>\n  <script src="assets/app.min.js" defer></script>')
+      '<link rel="stylesheet" href="assets/estilo.min.css">\n  <script src="assets/app.min.js" defer></script>')
+    .replace('content="../js/lib/chart.umd.min.js"', 'content="assets/chart.umd.min.js"')
     .replace(/\.\.\/imagens\//g, 'imagens/');
   const htmlAntes = Buffer.byteLength(html);
   saida = await minificarHtml(saida, {

@@ -37,10 +37,27 @@
     }
   };
 
-  function renderizarGrafico(cadastros) {
+  /** Chart.js (208 KB) só é baixado quando o painel precisa desenhar o gráfico */
+  function garantirChart() {
+    if (window.Chart) return Promise.resolve();
+    const meta = document.querySelector('meta[name="chart-js"]');
+    return meta ? ONG.dom.carregarScript(meta.content) : Promise.reject(new Error('Chart.js não configurado'));
+  }
+
+  async function renderizarGrafico(cadastros) {
     const bloco = $('#grafico-bloco');
-    // Viabilidade: se a biblioteca não carregar, o painel continua funcionando sem o gráfico
-    if (!window.Chart || !cadastros.length) { bloco.hidden = true; return; }
+    if (!bloco) return;
+    if (!cadastros.length) { bloco.hidden = true; return; }
+    try {
+      await garantirChart();
+      if (!window.Chart) throw new Error('Chart.js não disponível');
+    } catch (erro) {
+      // Viabilidade: se a biblioteca não carregar, o painel continua funcionando sem o gráfico
+      console.warn('[painel] gráfico indisponível:', erro.message);
+      bloco.hidden = true;
+      return;
+    }
+    if (!document.body.contains(bloco)) return; // usuário já saiu do painel
     bloco.hidden = false;
 
     const rotulos = ONG.dados.rotulos.participacao;

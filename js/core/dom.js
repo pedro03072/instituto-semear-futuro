@@ -43,6 +43,24 @@ window.ONG = window.ONG || {};
       return new Date(iso).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
     },
 
+    /**
+     * Carrega um script externo só quando ele for necessário (lazy loading).
+     * Retorna uma Promise; chamadas repetidas reaproveitam o mesmo carregamento.
+     */
+    carregarScript(src) {
+      ONG.dom._scripts = ONG.dom._scripts || {};
+      if (!ONG.dom._scripts[src]) {
+        ONG.dom._scripts[src] = new Promise((resolver, rejeitar) => {
+          const tag = document.createElement('script');
+          tag.src = src;
+          tag.onload = resolver;
+          tag.onerror = () => { delete ONG.dom._scripts[src]; rejeitar(new Error('Falha ao carregar ' + src)); };
+          document.head.appendChild(tag);
+        });
+      }
+      return ONG.dom._scripts[src];
+    },
+
     /** Usuário pediu menos animação no sistema operacional? */
     prefereMenosMovimento() {
       return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
