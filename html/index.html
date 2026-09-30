@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Instituto Semear Futuro: ONG que promove educação, segurança alimentar e inclusão digital para crianças e famílias em situação de vulnerabilidade.">
+  <title>Instituto Semear Futuro</title>
+  <link rel="icon" href="../imagens/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="../imagens/logo.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="../imagens/logo.png">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Módulos JavaScript, na ordem de dependência (defer = executam após o HTML) -->
+  <!-- core: utilitários, armazenamento e roteador -->
+  <script src="../js/core/dom.js" defer></script>
+  <script src="../js/core/storage.js" defer></script>
+  <script src="../js/core/router.js" defer></script>
+  <!-- data: dados da aplicação -->
+  <script src="../js/data/projetos.js" defer></script>
+  <!-- components: componentes de interface reutilizáveis -->
+  <script src="../js/components/menu.js" defer></script>
+  <script src="../js/components/toast.js" defer></script>
+  <script src="../js/components/modal.js" defer></script>
+  <!-- templates: funções que geram o HTML de cada vista -->
+  <script src="../js/templates/componentes.js" defer></script>
+  <script src="../js/templates/inicio.js" defer></script>
+  <script src="../js/templates/projetos.js" defer></script>
+  <script src="../js/templates/cadastro.js" defer></script>
+  <script src="../js/templates/painel.js" defer></script>
+  <!-- features: comportamento de cada área -->
+  <script src="../js/features/mascaras.js" defer></script>
+  <script src="../js/features/validacao.js" defer></script>
+  <script src="../js/features/cep.js" defer></script>
+  <script src="../js/features/inicio.js" defer></script>
+  <script src="../js/features/projetos.js" defer></script>
+  <script src="../js/features/cadastro.js" defer></script>
+  <script src="../js/features/painel.js" defer></script>
+  <!-- bibliotecas externas -->
+  <script src="../js/lib/chart.umd.min.js" defer></script>
+  <!-- inicialização -->
+  <script src="../js/app.js" defer></script>
+</head>
+<body>
+  <a class="pular-conteudo" href="#app">Pular para o conteúdo principal</a>
+
+  <header class="cabecalho">
+    <div class="container cabecalho__interno">
+      <a href="#/" class="marca" aria-label="Instituto Semear Futuro — página inicial">
+        <img src="../imagens/logo.svg" alt="" width="40" height="40">
+        <span>Semear Futuro</span>
+      </a>
+      <nav class="nav" aria-label="Navegação principal">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+          <span class="nav__icone" aria-hidden="true"></span> Menu
+        </button>
+        <ul class="menu" id="menu-principal">
+          <li class="menu__item"><a class="menu__link" href="#/" data-rota="/">Início</a></li>
+          <li class="menu__item">
+            <a class="menu__link menu__link--dropdown" href="#/projetos" data-rota="/projetos">Projetos</a>
+            <ul class="submenu">
+              <li><a href="#/projetos/aprender-juntos">Aprender Juntos</a></li>
+              <li><a href="#/projetos/mesa-cheia">Mesa Cheia</a></li>
+              <li><a href="#/projetos/conecta-jovem">Conecta Jovem</a></li>
+              <li><a href="#/projetos/leitura-na-praca">Leitura na Praça</a></li>
+            </ul>
+          </li>
+          <li class="menu__item"><a class="menu__link" href="#/cadastro" data-rota="/cadastro">Seja voluntário</a></li>
+          <li class="menu__item"><a class="menu__link" href="#/painel" data-rota="/painel">Painel</a></li>
+          <li class="menu__item"><a class="botao botao--pequeno" href="#/cadastro?tipo=doador">Doar agora</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Área onde o roteador renderiza as vistas (templates JavaScript) -->
+  <main id="app" class="vista" tabindex="-1">
+    <noscript>
+      <div class="container secao">
+        <h1>Ative o JavaScript</h1>
+        <p>Esta plataforma é uma aplicação de página única e precisa de JavaScript para funcionar.</p>
+      </div>
+    </noscript>
+  </main>
+
+  <footer class="rodape">
+    <div class="container grid">
+      <section class="col-12 col-md-4" aria-labelledby="rodape-contato">
+        <h2 id="rodape-contato">Contato</h2>
+        <address>
+          Rua das Sementes, 150 — Centro<br>
+          Belo Horizonte — MG, 30000-000<br>
+          <a href="tel:+553130000000">(31) 3000-0000</a><br>
+          <a href="mailto:contato@semearfuturo.org.br">contato@semearfuturo.org.br</a>
+        </address>
+      </section>
+      <section class="col-12 col-md-4" aria-labelledby="rodape-horario">
+        <h2 id="rodape-horario">Atendimento</h2>
+        <p>Segunda a sexta, das <time datetime="08:00">8h</time> às <time datetime="18:00">18h</time>.</p>
+        <p>Doações de alimentos são recebidas na sede no mesmo horário.</p>
+      </section>
+      <section class="col-12 col-md-4" aria-labelledby="rodape-navegacao">
+        <h2 id="rodape-navegacao">Navegue</h2>
+        <nav aria-label="Navegação do rodapé">
+          <ul>
+            <li><a href="#/">Início</a></li>
+            <li><a href="#/projetos">Projetos</a></li>
+            <li><a href="#/cadastro">Seja voluntário</a></li>
+            <li><a href="#/painel">Painel de cadastros</a></li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+    <p class="container rodape__legal"><small>&copy; 2026 Instituto Semear Futuro — CNPJ 00.000.000/0001-00 (organização fictícia para fins acadêmicos).</small></p>
+  </footer>
+
+  <!-- Componentes globais controlados por JavaScript -->
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+    <span class="toast__icone" aria-hidden="true">✓</span>
+    <p class="toast__texto"></p>
+  </div>
+
+  <dialog id="modal" class="modal" aria-labelledby="modal-titulo">
+    <div class="modal__cabecalho">
+      <h2 id="modal-titulo">Aviso</h2>
+      <form method="dialog">
+        <button class="modal__fechar" type="submit" value="cancelar" aria-label="Fechar">&times;</button>
+      </form>
+    </div>
+    <div class="modal__corpo"></div>
+    <div class="modal__acoes" hidden></div>
+  </dialog>
+</body>
+</html>

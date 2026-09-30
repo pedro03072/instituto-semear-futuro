@@ -253,7 +253,7 @@
 .campo input:user-invalid, .campo select:user-invalid, .campo textarea:user-invalid {
   border-color: var(--cor-erro); background: var(--cor-erro-fundo);
 }
-.campo input:user-valid { border-color: var(--cor-sucesso); }
+.campo input:user-valid:required { border-color: var(--cor-sucesso); }
 
 .opcoes { display: flex; flex-wrap: wrap; gap: var(--espaco-3) var(--espaco-5); }
 .opcoes label, .campo--check label { display: flex; align-items: flex-start; gap: var(--espaco-2); font-weight: var(--peso-normal); cursor: pointer; }

@@ -36,6 +36,9 @@ a:hover { color: var(--cor-primaria-700); }
 
 address { font-style: normal; }
 
+/* O atributo hidden sempre vence classes que definem display (flex, grid...) */
+[hidden] { display: none !important; }
+
 table { border-collapse: collapse; width: 100%; }
 th, td { padding: var(--espaco-3) var(--espaco-4); border-bottom: 1px solid var(--cor-borda); text-align: left; }
 thead th { background: var(--cor-fundo-alt); }

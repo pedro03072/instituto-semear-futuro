@@ -1,0 +1,102 @@
+/* =========================================================
+   06 · APLICAÇÃO (SPA) — estilos dos recursos dinâmicos
+   criados na Experiência Prática III (JavaScript)
+   ========================================================= */
+
+/* ---------- Transição entre vistas ---------- */
+.vista:focus { outline: none; }
+.vista--entrando { animation: vista-entrada var(--transicao-media) ease-out; }
+@keyframes vista-entrada {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+h1[tabindex="-1"]:focus { outline: none; }
+
+/* ---------- Feedback de validação ---------- */
+.erro-campo {
+  margin: 0;
+  font-size: var(--texto-sm);
+  font-weight: var(--peso-medio);
+  color: var(--cor-erro);
+}
+.erro-campo:empty { display: none; }
+.erro-campo::before { content: "⚠ "; }
+
+.campo [aria-invalid="true"] {
+  border-color: var(--cor-erro);
+  background: var(--cor-erro-fundo);
+}
+.campo [aria-invalid="true"]:focus { box-shadow: 0 0 0 3px rgb(179 38 30 / 0.25); }
+
+.resumo-erros:focus { outline: 3px solid var(--cor-erro); outline-offset: 2px; }
+.resumo-erros ul { margin: var(--espaco-2) 0 0; padding-left: var(--espaco-5); }
+.resumo-erros a { color: var(--cor-erro); font-weight: var(--peso-medio); }
+
+/* ---------- Barra de filtros ---------- */
+.barra-filtros {
+  display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--espaco-4);
+  margin-bottom: var(--espaco-3);
+}
+.barra-filtros__busca { flex: 1 1 240px; }
+.barra-filtros .campo { min-width: 200px; }
+
+.filtros { display: flex; flex-wrap: wrap; gap: var(--espaco-2); }
+.filtro {
+  min-height: 44px; padding: var(--espaco-2) var(--espaco-4);
+  font: inherit; font-weight: var(--peso-medio);
+  color: var(--cor-primaria-700); background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda); border-radius: var(--raio-pilula); cursor: pointer;
+  transition: background var(--transicao-rapida), color var(--transicao-rapida), border-color var(--transicao-rapida);
+}
+.filtro:hover { background: var(--cor-fundo-alt); }
+.filtro[aria-pressed="true"] {
+  color: var(--cor-neutra-0); background: var(--cor-primaria-500); border-color: var(--cor-primaria-500);
+}
+
+/* ---------- Estado vazio ---------- */
+.vazio {
+  display: flex; flex-direction: column; align-items: center; gap: var(--espaco-2);
+  padding: var(--espaco-7) var(--espaco-4); text-align: center;
+  border: 2px dashed var(--cor-borda); border-radius: var(--raio-lg);
+  color: var(--cor-texto-suave);
+}
+.vazio__icone { font-size: var(--texto-xl); }
+.vazio h3 { margin: 0; }
+
+/* ---------- Trilha de navegação (breadcrumb) ---------- */
+.trilha ol { display: flex; flex-wrap: wrap; gap: var(--espaco-2); list-style: none; padding: 0; margin: 0 0 var(--espaco-4); font-size: var(--texto-sm); }
+.trilha li + li::before { content: "›"; margin-right: var(--espaco-2); opacity: 0.7; }
+.trilha a { color: var(--cor-neutra-0); }
+
+/* ---------- Ficha técnica do projeto ---------- */
+.ficha { display: grid; gap: var(--espaco-3); margin-top: var(--espaco-5); }
+.ficha div { display: flex; flex-wrap: wrap; gap: var(--espaco-2); padding-bottom: var(--espaco-3); border-bottom: 1px solid var(--cor-borda); }
+.ficha dt { font-weight: var(--peso-forte); min-width: 90px; color: var(--cor-primaria-700); }
+.ficha dd { margin: 0; }
+
+/* ---------- Botões extras ---------- */
+.botao--perigo { background: var(--cor-erro); border-color: var(--cor-erro); color: var(--cor-neutra-0); }
+.botao--perigo:hover { background: #8f1e18; color: var(--cor-neutra-0); }
+.alinhar-fim { align-self: flex-end; }
+
+.link-botao {
+  padding: 0; font: inherit; font-weight: var(--peso-medio);
+  color: var(--cor-link); background: none; border: 0;
+  text-decoration: underline; cursor: pointer;
+}
+
+/* ---------- Toast: variações ---------- */
+.toast--erro { background: var(--cor-erro); }
+.toast--info { background: var(--cor-info); }
+
+/* ---------- Modal: área de ações ---------- */
+.modal__acoes {
+  display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--espaco-3);
+  padding: 0 var(--espaco-5) var(--espaco-5);
+}
+.modal__acoes[hidden] { display: none; }
+
+/* ---------- Gráfico do painel (Chart.js) ---------- */
+.grafico { margin: 0; }
+.grafico figcaption { display: flex; flex-direction: column; gap: var(--espaco-1); }
+.grafico__area { position: relative; height: 200px; }
