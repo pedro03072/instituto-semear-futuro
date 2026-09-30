@@ -1,0 +1,33 @@
+/* =========================================================
+   05 · UTILITÁRIOS — classes de ajuste pontual
+   ========================================================= */
+
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-coluna { flex-direction: column; }
+.itens-centro { align-items: center; }
+.entre { justify-content: space-between; }
+.gap-2 { gap: var(--espaco-2); }
+.gap-4 { gap: var(--espaco-4); }
+
+.texto-centro { text-align: center; }
+.texto-suave { color: var(--cor-texto-suave); }
+.texto-sm { font-size: var(--texto-sm); }
+
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mt-5 { margin-top: var(--espaco-5); }
+.mb-5 { margin-bottom: var(--espaco-5); }
+
+.alinhar-centro { align-self: center; }
+.alinhar-topo { align-self: start; }
+
+@media (min-width: 1024px) {
+  .fixo-rolagem { position: sticky; top: calc(64px + var(--espaco-5)); }
+}
+
+/* Esconde visualmente, mas mantém para leitores de tela */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}

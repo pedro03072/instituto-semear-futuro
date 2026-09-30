@@ -1,0 +1,122 @@
+/* =========================================================
+   01 · DESIGN SYSTEM — tokens (variáveis customizadas)
+   Toda cor, tamanho de fonte, espaço, raio e sombra do site
+   vem daqui. Alterar um token atualiza a plataforma inteira.
+   ========================================================= */
+
+:root {
+  /* ---------- Paleta de cores ---------- */
+  /* Primária (verde institucional) */
+  --cor-primaria-100: #e3f0e8;
+  --cor-primaria-300: #8cc4a2;
+  --cor-primaria-500: #1f6f50;
+  --cor-primaria-700: #154d38;
+  --cor-primaria-900: #0b2b1f;
+
+  /* Secundária (amarelo de destaque / chamadas para ação) */
+  --cor-secundaria-100: #fdf3d8;
+  --cor-secundaria-500: #f2c14e;
+  --cor-secundaria-700: #b8861b;
+
+  /* Neutras */
+  --cor-neutra-0: #ffffff;
+  --cor-neutra-50: #f6f8f7;
+  --cor-neutra-100: #eef2f0;
+  --cor-neutra-300: #c9d6cf;
+  --cor-neutra-500: #6b7a73;
+  --cor-neutra-700: #3d4b44;
+  --cor-neutra-900: #1d2a24;
+
+  /* Feedback */
+  --cor-sucesso: #1b7a3e;
+  --cor-sucesso-fundo: #e6f4ea;
+  --cor-erro: #b3261e;
+  --cor-erro-fundo: #fdecea;
+  --cor-alerta: #8a5a00;
+  --cor-alerta-fundo: #fff4d6;
+  --cor-info: #1a5fa8;
+  --cor-info-fundo: #e7f0fb;
+
+  /* Aliases semânticos (o que os componentes usam) */
+  --cor-texto: var(--cor-neutra-900);
+  --cor-texto-suave: var(--cor-neutra-700);
+  --cor-fundo: var(--cor-neutra-0);
+  --cor-fundo-alt: var(--cor-primaria-100);
+  --cor-borda: var(--cor-neutra-300);
+  --cor-link: var(--cor-primaria-500);
+  --cor-foco: var(--cor-secundaria-500);
+
+  /* ---------- Tipografia ---------- */
+  --fonte-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fonte-titulo: var(--fonte-base);
+
+  /* Escala modular 1.25 (terça maior) a partir de 16px */
+  --texto-xs: 0.8rem;     /* 12.8px */
+  --texto-sm: 0.875rem;   /* 14px   */
+  --texto-base: 1rem;     /* 16px   */
+  --texto-md: 1.25rem;    /* 20px   */
+  --texto-lg: 1.563rem;   /* 25px   */
+  --texto-xl: 1.953rem;   /* 31px   */
+  --texto-2xl: clamp(2rem, 1.4rem + 2.6vw, 3.052rem); /* 32px → 49px, fluido */
+
+  --peso-normal: 400;
+  --peso-medio: 600;
+  --peso-forte: 800;
+
+  --altura-linha: 1.6;
+  --altura-linha-titulo: 1.2;
+
+  /* ---------- Espaçamento modular (base 8px) ---------- */
+  --espaco-1: 0.25rem;  /*  4px */
+  --espaco-2: 0.5rem;   /*  8px */
+  --espaco-3: 0.75rem;  /* 12px */
+  --espaco-4: 1rem;     /* 16px */
+  --espaco-5: 1.5rem;   /* 24px */
+  --espaco-6: 2rem;     /* 32px */
+  --espaco-7: 3rem;     /* 48px */
+  --espaco-8: 4rem;     /* 64px */
+  --espaco-9: 6rem;     /* 96px */
+
+  /* ---------- Layout ---------- */
+  --largura-maxima: 1200px;
+  --grid-colunas: 12;
+  --grid-gutter: var(--espaco-4);
+  --margem-lateral: var(--espaco-4);
+
+  /* ---------- Bordas, sombras e movimento ---------- */
+  --raio-sm: 4px;
+  --raio-md: 8px;
+  --raio-lg: 16px;
+  --raio-pilula: 999px;
+
+  --sombra-sm: 0 1px 2px rgb(0 0 0 / 0.08);
+  --sombra-md: 0 4px 12px rgb(0 0 0 / 0.10);
+  --sombra-lg: 0 12px 32px rgb(0 0 0 / 0.16);
+
+  --transicao-rapida: 150ms ease;
+  --transicao-media: 250ms ease;
+
+  --z-menu: 100;
+  --z-modal: 1000;
+  --z-toast: 1100;
+}
+
+/* Breakpoints (mobile-first) — usados nas media queries:
+   xs  <  480px   celulares pequenos (padrão, sem media query)
+   sm  ≥  480px   celulares grandes
+   md  ≥  768px   tablets
+   lg  ≥ 1024px   notebooks
+   xl  ≥ 1280px   desktops
+   xxl ≥ 1536px   desktops panorâmicos (container de 1400px)
+   (variáveis CSS não funcionam dentro de @media, por isso ficam documentados aqui) */
+
+@media (min-width: 768px) {
+  :root {
+    --grid-gutter: var(--espaco-5);
+    --margem-lateral: var(--espaco-5);
+  }
+}
+
+@media (min-width: 1280px) {
+  :root { --grid-gutter: var(--espaco-6); }
+}

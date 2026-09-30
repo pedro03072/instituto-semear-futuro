@@ -1,0 +1,46 @@
+/* =========================================================
+   02 · BASE — reset e estilos globais dos elementos HTML
+   ========================================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--fonte-base);
+  font-size: var(--texto-base);
+  line-height: var(--altura-linha);
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--fonte-titulo);
+  line-height: var(--altura-linha-titulo);
+  margin: 0 0 var(--espaco-4);
+  color: var(--cor-primaria-700);
+}
+h1 { font-size: var(--texto-2xl); font-weight: var(--peso-forte); }
+h2 { font-size: var(--texto-xl); }
+h3 { font-size: var(--texto-md); color: var(--cor-primaria-500); }
+
+p, ul, ol, dl, figure, blockquote { margin: 0 0 var(--espaco-4); }
+
+img, picture, svg { display: block; max-width: 100%; height: auto; }
+
+a { color: var(--cor-link); text-underline-offset: 3px; transition: color var(--transicao-rapida); }
+a:hover { color: var(--cor-primaria-700); }
+
+:focus-visible { outline: 3px solid var(--cor-foco); outline-offset: 2px; }
+
+address { font-style: normal; }
+
+table { border-collapse: collapse; width: 100%; }
+th, td { padding: var(--espaco-3) var(--espaco-4); border-bottom: 1px solid var(--cor-borda); text-align: left; }
+thead th { background: var(--cor-fundo-alt); }
+
+/* Acessibilidade: respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}

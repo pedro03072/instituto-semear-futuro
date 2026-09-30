@@ -9,6 +9,7 @@
   <link rel="icon" href="img/logo.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="img/logo.png">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/menu.js" defer></script>
   <script src="js/mascaras.js" defer></script>
 </head>
 <body>
@@ -17,14 +18,26 @@
   <header class="cabecalho">
     <div class="container cabecalho__interno">
       <a href="index.html" class="marca" aria-label="Instituto Semear Futuro — página inicial">
-        <img src="img/logo.svg" alt="" width="48" height="48">
-        <span>Instituto Semear Futuro</span>
+        <img src="img/logo.svg" alt="" width="40" height="40">
+        <span>Semear Futuro</span>
       </a>
-      <nav aria-label="Navegação principal">
-        <ul class="menu">
-          <li><a href="index.html">Início</a></li>
-          <li><a href="projetos.html">Projetos</a></li>
-          <li><a href="cadastro.html" aria-current="page">Seja voluntário</a></li>
+      <nav class="nav" aria-label="Navegação principal">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+          <span class="nav__icone" aria-hidden="true"></span> Menu
+        </button>
+        <ul class="menu" id="menu-principal">
+          <li class="menu__item"><a class="menu__link" href="index.html">Início</a></li>
+          <li class="menu__item">
+            <a class="menu__link menu__link--dropdown" href="projetos.html">Projetos</a>
+            <ul class="submenu">
+              <li><a href="projetos.html#aprender-juntos">Aprender Juntos</a></li>
+              <li><a href="projetos.html#mesa-cheia">Mesa Cheia</a></li>
+              <li><a href="projetos.html#conecta-jovem">Conecta Jovem</a></li>
+              <li><a href="projetos.html#como-ajudar">Como ajudar</a></li>
+            </ul>
+          </li>
+          <li class="menu__item"><a class="menu__link" href="cadastro.html" aria-current="page">Seja voluntário</a></li>
+          <li class="menu__item"><a class="botao botao--pequeno" href="cadastro.html#dados-doacao">Doar agora</a></li>
         </ul>
       </nav>
     </div>
@@ -38,216 +51,236 @@
       </div>
     </section>
 
-    <section class="container secao" aria-labelledby="titulo-formulario">
-      <h2 id="titulo-formulario">Formulário de cadastro</h2>
-      <p class="aviso">Campos marcados com <abbr title="obrigatório" class="obrigatorio">*</abbr> são obrigatórios.</p>
+    <div class="secao">
+      <div class="container grid">
+        <section class="col-12 col-lg-8" aria-labelledby="titulo-formulario">
+          <h2 id="titulo-formulario">Formulário de cadastro</h2>
+          <p class="texto-suave">Campos marcados com <abbr title="obrigatório" class="obrigatorio">*</abbr> são obrigatórios.</p>
+          <form class="formulario" action="#" method="post" autocomplete="on" data-validar>
 
-      <form class="formulario" action="#" method="post" autocomplete="on" data-validar>
+            <fieldset>
+              <legend>Dados pessoais</legend>
 
-        <fieldset>
-          <legend>Dados pessoais</legend>
+              <div class="grid">
+              <div class="campo col-12">
+                <label for="nome">Nome completo <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
+                <input type="text" id="nome" name="nome" required minlength="5" maxlength="100"
+                       pattern="^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ']+)+$"
+                       autocomplete="name" aria-describedby="nome-dica"
+                       title="Informe nome e sobrenome, apenas letras.">
+                <small id="nome-dica" class="dica">Nome e sobrenome, apenas letras.</small>
+              </div>
 
-          <div class="campo">
-            <label for="nome">Nome completo <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
-            <input type="text" id="nome" name="nome" required minlength="5" maxlength="100"
-                   pattern="^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ']+)+$"
-                   autocomplete="name" aria-describedby="nome-dica"
-                   title="Informe nome e sobrenome, apenas letras.">
-            <small id="nome-dica" class="dica">Nome e sobrenome, apenas letras.</small>
+                <div class="campo col-12 col-md-6">
+                  <label for="cpf">CPF <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
+                  <input type="text" id="cpf" name="cpf" required inputmode="numeric"
+                         maxlength="14" placeholder="000.000.000-00"
+                         pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" data-mascara="cpf"
+                         aria-describedby="cpf-dica" title="Formato: 000.000.000-00">
+                  <small id="cpf-dica" class="dica">Formato 000.000.000-00. Os dígitos verificadores são conferidos.</small>
+                </div>
+
+                <div class="campo col-12 col-md-6">
+                  <label for="nascimento">Data de nascimento <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
+                  <input type="date" id="nascimento" name="nascimento" required
+                         min="1920-01-01" max="2010-12-31" autocomplete="bday"
+                         aria-describedby="nascimento-dica">
+                  <small id="nascimento-dica" class="dica">É preciso ter no mínimo 16 anos.</small>
+                </div>
+              </div>
+
+              <div class="grid">
+                <div class="campo col-12 col-md-6">
+                  <label for="email">E-mail <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
+                  <input type="email" id="email" name="email" required maxlength="120"
+                         autocomplete="email" placeholder="nome@exemplo.com">
+                </div>
+
+                <div class="campo col-12 col-md-6">
+                  <label for="telefone">Telefone / WhatsApp <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
+                  <input type="tel" id="telefone" name="telefone" required inputmode="numeric"
+                         maxlength="15" placeholder="(00) 00000-0000"
+                         pattern="^\(\d{2}\) (?:9\d{4}|[2-5]\d{3})-\d{4}$" data-mascara="telefone"
+                         autocomplete="tel" aria-describedby="telefone-dica"
+                         title="Formato: (00) 00000-0000 para celular ou (00) 0000-0000 para fixo">
+                  <small id="telefone-dica" class="dica">Celular (00) 00000-0000 ou fixo (00) 0000-0000.</small>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Endereço</legend>
+
+              <div class="grid">
+                <div class="campo col-12 col-sm-6 col-md-3">
+                  <label for="cep">CEP <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
+                  <input type="text" id="cep" name="cep" required inputmode="numeric"
+                         maxlength="9" placeholder="00000-000"
+                         pattern="^\d{5}-\d{3}$" data-mascara="cep"
+                         autocomplete="postal-code" title="Formato: 00000-000">
+                </div>
+
+                <div class="campo col-12 col-md-6">
+                  <label for="logradouro">Endereço <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
+                  <input type="text" id="logradouro" name="logradouro" required minlength="3" maxlength="120"
+                         autocomplete="address-line1">
+                </div>
+
+                <div class="campo col-12 col-sm-6 col-md-3">
+                  <label for="numero">Número <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
+                  <input type="text" id="numero" name="numero" required maxlength="10"
+                         pattern="^(\d+[A-Za-z]?|S/N|s/n)$" title="Somente números ou S/N">
+                </div>
+
+                <div class="campo col-12 col-md-5">
+                  <label for="complemento">Complemento</label>
+                  <input type="text" id="complemento" name="complemento" maxlength="60"
+                         autocomplete="address-line2">
+                </div>
+
+                <div class="campo col-12 col-sm-6 col-md-4">
+                  <label for="cidade">Cidade <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
+                  <input type="text" id="cidade" name="cidade" required minlength="2" maxlength="60"
+                         autocomplete="address-level2">
+                </div>
+
+                <div class="campo col-12 col-sm-6 col-md-3">
+                  <label for="uf">UF <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
+                  <select id="uf" name="uf" required autocomplete="address-level1">
+                    <option value="">Selecione</option>
+                    <option value="AC">AC</option><option value="AL">AL</option>
+                    <option value="AP">AP</option><option value="AM">AM</option>
+                    <option value="BA">BA</option><option value="CE">CE</option>
+                    <option value="DF">DF</option><option value="ES">ES</option>
+                    <option value="GO">GO</option><option value="MA">MA</option>
+                    <option value="MT">MT</option><option value="MS">MS</option>
+                    <option value="MG">MG</option><option value="PA">PA</option>
+                    <option value="PB">PB</option><option value="PR">PR</option>
+                    <option value="PE">PE</option><option value="PI">PI</option>
+                    <option value="RJ">RJ</option><option value="RN">RN</option>
+                    <option value="RS">RS</option><option value="RO">RO</option>
+                    <option value="RR">RR</option><option value="SC">SC</option>
+                    <option value="SP">SP</option><option value="SE">SE</option>
+                    <option value="TO">TO</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Como deseja participar? <abbr title="obrigatório" class="obrigatorio">*</abbr></legend>
+              <div class="opcoes">
+                <label><input type="radio" name="participacao" value="voluntario" required> Voluntário</label>
+                <label><input type="radio" name="participacao" value="doador"> Doador</label>
+                <label><input type="radio" name="participacao" value="ambos"> Voluntário e doador</label>
+              </div>
+            </fieldset>
+
+            <fieldset id="dados-voluntario">
+              <legend>Voluntariado</legend>
+
+              <p class="rotulo-grupo" id="areas-rotulo">Áreas de interesse</p>
+              <div class="opcoes" role="group" aria-labelledby="areas-rotulo">
+                <label><input type="checkbox" name="areas" value="educacao"> Reforço escolar</label>
+                <label><input type="checkbox" name="areas" value="alimentacao"> Distribuição de alimentos</label>
+                <label><input type="checkbox" name="areas" value="tecnologia"> Aulas de informática</label>
+                <label><input type="checkbox" name="areas" value="eventos"> Eventos e campanhas</label>
+                <label><input type="checkbox" name="areas" value="comunicacao"> Comunicação e redes sociais</label>
+              </div>
+
+              <div class="grid">
+                <div class="campo col-12 col-md-8">
+                  <label for="disponibilidade">Disponibilidade</label>
+                  <select id="disponibilidade" name="disponibilidade">
+                    <option value="">Selecione</option>
+                    <option value="manha">Manhã</option>
+                    <option value="tarde">Tarde</option>
+                    <option value="noite">Noite</option>
+                    <option value="fim-de-semana">Fins de semana</option>
+                  </select>
+                </div>
+
+                <div class="campo col-12 col-md-4">
+                  <label for="horas">Horas por semana</label>
+                  <input type="number" id="horas" name="horas" min="1" max="40" step="1">
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset id="dados-doacao">
+              <legend>Doação</legend>
+
+              <div class="grid">
+                <div class="campo col-12 col-md-6">
+                  <label for="valor">Valor da doação (R$)</label>
+                  <input type="number" id="valor" name="valor" min="10" max="100000" step="0.01"
+                         placeholder="10,00" aria-describedby="valor-dica">
+                  <small id="valor-dica" class="dica">Valor mínimo de R$ 10,00.</small>
+                </div>
+
+                <div class="campo col-12 col-md-6">
+                  <label for="frequencia">Frequência</label>
+                  <select id="frequencia" name="frequencia">
+                    <option value="">Selecione</option>
+                    <option value="unica">Doação única</option>
+                    <option value="mensal">Mensal</option>
+                    <option value="anual">Anual</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Mensagem</legend>
+              <div class="campo col-12">
+                <label for="mensagem">Conte por que deseja participar</label>
+                <textarea id="mensagem" name="mensagem" rows="4" maxlength="500"
+                          aria-describedby="mensagem-dica"></textarea>
+                <small id="mensagem-dica" class="dica">Até 500 caracteres.</small>
+              </div>
+            </fieldset>
+
+            <div class="campo campo--check">
+              <label>
+                <input type="checkbox" name="lgpd" required>
+                Autorizo o uso dos meus dados pelo Instituto Semear Futuro conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018). <abbr title="obrigatório" class="obrigatorio">*</abbr>
+              </label>
+            </div>
+
+            <div class="formulario__acoes">
+              <button type="submit" class="botao botao--primario">Enviar cadastro</button>
+              <button type="reset" class="botao botao--contorno">Limpar</button>
+            </div>
+
+          </form>
+        </section>
+
+        <aside class="col-12 col-lg-4 alinhar-topo fixo-rolagem" aria-labelledby="titulo-lateral">
+          <div class="cartao">
+            <h2 id="titulo-lateral" class="mb-0">Por que se cadastrar?</h2>
+            <ul>
+              <li>Escolha a área e o horário que combinam com você.</li>
+              <li>Receba o relatório anual de impacto.</li>
+              <li>Doações a partir de R$ 10,00.</li>
+            </ul>
+            <div class="alerta">
+              <span class="alerta__icone" aria-hidden="true">i</span>
+              <p>Seus dados são protegidos pela LGPD e nunca são compartilhados com terceiros.</p>
+            </div>
           </div>
+        </aside>
+      </div>
+    </div>
 
-          <div class="linha">
-            <div class="campo">
-              <label for="cpf">CPF <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
-              <input type="text" id="cpf" name="cpf" required inputmode="numeric"
-                     maxlength="14" placeholder="000.000.000-00"
-                     pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" data-mascara="cpf"
-                     aria-describedby="cpf-dica" title="Formato: 000.000.000-00">
-              <small id="cpf-dica" class="dica">Formato 000.000.000-00. Os dígitos verificadores são conferidos.</small>
-            </div>
-
-            <div class="campo">
-              <label for="nascimento">Data de nascimento <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
-              <input type="date" id="nascimento" name="nascimento" required
-                     min="1920-01-01" max="2010-12-31" autocomplete="bday"
-                     aria-describedby="nascimento-dica">
-              <small id="nascimento-dica" class="dica">É preciso ter no mínimo 16 anos.</small>
-            </div>
-          </div>
-
-          <div class="linha">
-            <div class="campo">
-              <label for="email">E-mail <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
-              <input type="email" id="email" name="email" required maxlength="120"
-                     autocomplete="email" placeholder="nome@exemplo.com">
-            </div>
-
-            <div class="campo">
-              <label for="telefone">Telefone / WhatsApp <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
-              <input type="tel" id="telefone" name="telefone" required inputmode="numeric"
-                     maxlength="15" placeholder="(00) 00000-0000"
-                     pattern="^\(\d{2}\) (?:9\d{4}|[2-5]\d{3})-\d{4}$" data-mascara="telefone"
-                     autocomplete="tel" aria-describedby="telefone-dica"
-                     title="Formato: (00) 00000-0000 para celular ou (00) 0000-0000 para fixo">
-              <small id="telefone-dica" class="dica">Celular (00) 00000-0000 ou fixo (00) 0000-0000.</small>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Endereço</legend>
-
-          <div class="linha">
-            <div class="campo campo--curto">
-              <label for="cep">CEP <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
-              <input type="text" id="cep" name="cep" required inputmode="numeric"
-                     maxlength="9" placeholder="00000-000"
-                     pattern="^\d{5}-\d{3}$" data-mascara="cep"
-                     autocomplete="postal-code" title="Formato: 00000-000">
-            </div>
-
-            <div class="campo">
-              <label for="logradouro">Endereço <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
-              <input type="text" id="logradouro" name="logradouro" required minlength="3" maxlength="120"
-                     autocomplete="address-line1">
-            </div>
-
-            <div class="campo campo--curto">
-              <label for="numero">Número <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
-              <input type="text" id="numero" name="numero" required maxlength="10"
-                     pattern="^(\d+[A-Za-z]?|S/N|s/n)$" title="Somente números ou S/N">
-            </div>
-          </div>
-
-          <div class="linha">
-            <div class="campo">
-              <label for="complemento">Complemento</label>
-              <input type="text" id="complemento" name="complemento" maxlength="60"
-                     autocomplete="address-line2">
-            </div>
-
-            <div class="campo">
-              <label for="cidade">Cidade <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
-              <input type="text" id="cidade" name="cidade" required minlength="2" maxlength="60"
-                     autocomplete="address-level2">
-            </div>
-
-            <div class="campo campo--curto">
-              <label for="uf">UF <abbr title="obrigatório" class="obrigatorio">*</abbr></label>
-              <select id="uf" name="uf" required autocomplete="address-level1">
-                <option value="">Selecione</option>
-                <option value="AC">AC</option><option value="AL">AL</option>
-                <option value="AP">AP</option><option value="AM">AM</option>
-                <option value="BA">BA</option><option value="CE">CE</option>
-                <option value="DF">DF</option><option value="ES">ES</option>
-                <option value="GO">GO</option><option value="MA">MA</option>
-                <option value="MT">MT</option><option value="MS">MS</option>
-                <option value="MG">MG</option><option value="PA">PA</option>
-                <option value="PB">PB</option><option value="PR">PR</option>
-                <option value="PE">PE</option><option value="PI">PI</option>
-                <option value="RJ">RJ</option><option value="RN">RN</option>
-                <option value="RS">RS</option><option value="RO">RO</option>
-                <option value="RR">RR</option><option value="SC">SC</option>
-                <option value="SP">SP</option><option value="SE">SE</option>
-                <option value="TO">TO</option>
-              </select>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Como deseja participar? <abbr title="obrigatório" class="obrigatorio">*</abbr></legend>
-          <div class="opcoes">
-            <label><input type="radio" name="participacao" value="voluntario" required> Voluntário</label>
-            <label><input type="radio" name="participacao" value="doador"> Doador</label>
-            <label><input type="radio" name="participacao" value="ambos"> Voluntário e doador</label>
-          </div>
-        </fieldset>
-
-        <fieldset id="dados-voluntario">
-          <legend>Voluntariado</legend>
-
-          <p class="rotulo-grupo" id="areas-rotulo">Áreas de interesse</p>
-          <div class="opcoes" role="group" aria-labelledby="areas-rotulo">
-            <label><input type="checkbox" name="areas" value="educacao"> Reforço escolar</label>
-            <label><input type="checkbox" name="areas" value="alimentacao"> Distribuição de alimentos</label>
-            <label><input type="checkbox" name="areas" value="tecnologia"> Aulas de informática</label>
-            <label><input type="checkbox" name="areas" value="eventos"> Eventos e campanhas</label>
-            <label><input type="checkbox" name="areas" value="comunicacao"> Comunicação e redes sociais</label>
-          </div>
-
-          <div class="linha">
-            <div class="campo">
-              <label for="disponibilidade">Disponibilidade</label>
-              <select id="disponibilidade" name="disponibilidade">
-                <option value="">Selecione</option>
-                <option value="manha">Manhã</option>
-                <option value="tarde">Tarde</option>
-                <option value="noite">Noite</option>
-                <option value="fim-de-semana">Fins de semana</option>
-              </select>
-            </div>
-
-            <div class="campo campo--curto">
-              <label for="horas">Horas por semana</label>
-              <input type="number" id="horas" name="horas" min="1" max="40" step="1">
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset id="dados-doacao">
-          <legend>Doação</legend>
-
-          <div class="linha">
-            <div class="campo">
-              <label for="valor">Valor da doação (R$)</label>
-              <input type="number" id="valor" name="valor" min="10" max="100000" step="0.01"
-                     placeholder="10,00" aria-describedby="valor-dica">
-              <small id="valor-dica" class="dica">Valor mínimo de R$ 10,00.</small>
-            </div>
-
-            <div class="campo">
-              <label for="frequencia">Frequência</label>
-              <select id="frequencia" name="frequencia">
-                <option value="">Selecione</option>
-                <option value="unica">Doação única</option>
-                <option value="mensal">Mensal</option>
-                <option value="anual">Anual</option>
-              </select>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Mensagem</legend>
-          <div class="campo">
-            <label for="mensagem">Conte por que deseja participar</label>
-            <textarea id="mensagem" name="mensagem" rows="4" maxlength="500"
-                      aria-describedby="mensagem-dica"></textarea>
-            <small id="mensagem-dica" class="dica">Até 500 caracteres.</small>
-          </div>
-        </fieldset>
-
-        <div class="campo campo--check">
-          <label>
-            <input type="checkbox" name="lgpd" required>
-            Autorizo o uso dos meus dados pelo Instituto Semear Futuro conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018). <abbr title="obrigatório" class="obrigatorio">*</abbr>
-          </label>
-        </div>
-
-        <div class="acoes-formulario">
-          <button type="submit" class="botao">Enviar cadastro</button>
-          <button type="reset" class="botao botao--secundario">Limpar</button>
-        </div>
-
-        <p class="mensagem-status" role="status" aria-live="polite"></p>
-      </form>
-    </section>
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <span aria-hidden="true">✓</span>
+      <p></p>
+    </div>
   </main>
 
   <footer class="rodape">
-    <div class="container grade grade--3">
-      <section aria-labelledby="rodape-contato">
+    <div class="container grid">
+      <section class="col-12 col-md-4" aria-labelledby="rodape-contato">
         <h2 id="rodape-contato">Contato</h2>
         <address>
           Rua das Sementes, 150 — Centro<br>
@@ -256,11 +289,12 @@
           <a href="mailto:contato@semearfuturo.org.br">contato@semearfuturo.org.br</a>
         </address>
       </section>
-      <section aria-labelledby="rodape-horario">
+      <section class="col-12 col-md-4" aria-labelledby="rodape-horario">
         <h2 id="rodape-horario">Atendimento</h2>
         <p>Segunda a sexta, das <time datetime="08:00">8h</time> às <time datetime="18:00">18h</time>.</p>
+        <p>Doações de alimentos são recebidas na sede no mesmo horário.</p>
       </section>
-      <section aria-labelledby="rodape-navegacao">
+      <section class="col-12 col-md-4" aria-labelledby="rodape-navegacao">
         <h2 id="rodape-navegacao">Navegue</h2>
         <nav aria-label="Navegação do rodapé">
           <ul>

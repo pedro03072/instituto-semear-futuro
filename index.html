@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Instituto Semear Futuro: ONG que promove educação, segurança alimentar e inclusão digital para crianças e famílias em situação de vulnerabilidade.">
-  <meta name="keywords" content="ONG, voluntariado, doação, educação, terceiro setor">
   <title>Instituto Semear Futuro | Início</title>
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
   <link rel="icon" href="img/logo.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="img/logo.png">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/menu.js" defer></script>
 </head>
 <body>
   <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo principal</a>
@@ -17,14 +17,26 @@
   <header class="cabecalho">
     <div class="container cabecalho__interno">
       <a href="index.html" class="marca" aria-label="Instituto Semear Futuro — página inicial">
-        <img src="img/logo.svg" alt="" width="48" height="48">
-        <span>Instituto Semear Futuro</span>
+        <img src="img/logo.svg" alt="" width="40" height="40">
+        <span>Semear Futuro</span>
       </a>
-      <nav aria-label="Navegação principal">
-        <ul class="menu">
-          <li><a href="index.html" aria-current="page">Início</a></li>
-          <li><a href="projetos.html">Projetos</a></li>
-          <li><a href="cadastro.html">Seja voluntário</a></li>
+      <nav class="nav" aria-label="Navegação principal">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+          <span class="nav__icone" aria-hidden="true"></span> Menu
+        </button>
+        <ul class="menu" id="menu-principal">
+          <li class="menu__item"><a class="menu__link" href="index.html" aria-current="page">Início</a></li>
+          <li class="menu__item">
+            <a class="menu__link menu__link--dropdown" href="projetos.html">Projetos</a>
+            <ul class="submenu">
+              <li><a href="projetos.html#aprender-juntos">Aprender Juntos</a></li>
+              <li><a href="projetos.html#mesa-cheia">Mesa Cheia</a></li>
+              <li><a href="projetos.html#conecta-jovem">Conecta Jovem</a></li>
+              <li><a href="projetos.html#como-ajudar">Como ajudar</a></li>
+            </ul>
+          </li>
+          <li class="menu__item"><a class="menu__link" href="cadastro.html">Seja voluntário</a></li>
+          <li class="menu__item"><a class="botao botao--pequeno" href="cadastro.html#dados-doacao">Doar agora</a></li>
         </ul>
       </nav>
     </div>
@@ -35,66 +47,79 @@
       <div class="container">
         <h1 id="titulo-principal">Semeando oportunidades, colhendo futuros</h1>
         <p>Desde 2012, o Instituto Semear Futuro apoia crianças, jovens e famílias em situação de vulnerabilidade social com educação, alimentação e inclusão digital.</p>
-        <p class="acoes">
+        <div class="destaque__acoes">
           <a class="botao" href="cadastro.html">Quero ajudar</a>
-          <a class="botao botao--secundario" href="projetos.html">Conheça nossos projetos</a>
-        </p>
+          <a class="botao botao--claro" href="projetos.html">Conheça nossos projetos</a>
+        </div>
       </div>
     </section>
 
-    <section id="sobre" class="container secao" aria-labelledby="titulo-sobre">
-      <h2 id="titulo-sobre">Quem somos</h2>
-      <div class="apresentacao">
-        <p>Somos uma organização da sociedade civil sem fins lucrativos, formada por educadores, assistentes sociais e voluntários que acreditam que a transformação social começa na comunidade. Atuamos em bairros periféricos em parceria com escolas públicas, unidades de saúde e associações de moradores.</p>
-        <figure>
-          <picture>
-            <source srcset="img/voluntarios.svg" type="image/svg+xml">
-            <source srcset="img/voluntarios.webp" type="image/webp">
-            <img src="img/voluntarios.png" width="480" height="300" loading="lazy"
-                 alt="Ilustração de três voluntários do Instituto em frente à horta comunitária, segurando uma cesta de alimentos.">
-          </picture>
-          <figcaption>Voluntários na horta comunitária do projeto Mesa Cheia.</figcaption>
-        </figure>
-      </div>
+    <section id="sobre" class="secao" aria-labelledby="titulo-sobre">
+      <div class="container">
+        <div class="grid">
+          <div class="col-12 col-md-6 alinhar-centro">
+            <h2 id="titulo-sobre">Quem somos</h2>
+            <p>Somos uma organização da sociedade civil sem fins lucrativos, formada por educadores, assistentes sociais e voluntários que acreditam que a transformação social começa na comunidade.</p>
+            <p>Atuamos em bairros periféricos em parceria com escolas públicas, unidades de saúde e associações de moradores.</p>
+            <ul class="lista-badges" aria-label="Áreas de atuação">
+              <li class="badge badge--primaria">Educação</li>
+              <li class="badge badge--secundaria">Segurança alimentar</li>
+              <li class="badge badge--info">Inclusão digital</li>
+            </ul>
+          </div>
+          <figure class="figura col-12 col-md-6">
+            <picture>
+              <source srcset="img/voluntarios.svg" type="image/svg+xml">
+              <source srcset="img/voluntarios.webp" type="image/webp">
+              <img src="img/voluntarios.png" width="480" height="300" loading="lazy"
+                   alt="Ilustração de três voluntários do Instituto em frente à horta comunitária, segurando uma cesta de alimentos.">
+            </picture>
+            <figcaption>Voluntários na horta comunitária do projeto Mesa Cheia.</figcaption>
+          </figure>
+        </div>
 
-      <div class="grade grade--3">
-        <article class="cartao">
-          <h3>Missão</h3>
-          <p>Promover o desenvolvimento integral de crianças e famílias por meio da educação, da segurança alimentar e do acesso à tecnologia.</p>
-        </article>
-        <article class="cartao">
-          <h3>Visão</h3>
-          <p>Ser referência regional em projetos sociais transparentes, com impacto mensurável e participação ativa da comunidade.</p>
-        </article>
-        <article class="cartao">
-          <h3>Valores</h3>
-          <ul>
-            <li>Transparência</li>
-            <li>Respeito à diversidade</li>
-            <li>Protagonismo comunitário</li>
-            <li>Compromisso com resultados</li>
-          </ul>
-        </article>
+        <div class="grid mt-5">
+          <article class="cartao col-12 col-md-4">
+            <span class="cartao__icone" aria-hidden="true">🎯</span>
+            <h3>Missão</h3>
+            <p>Promover o desenvolvimento integral de crianças e famílias por meio da educação, da segurança alimentar e do acesso à tecnologia.</p>
+          </article>
+          <article class="cartao col-12 col-md-4">
+            <span class="cartao__icone" aria-hidden="true">🔭</span>
+            <h3>Visão</h3>
+            <p>Ser referência regional em projetos sociais transparentes, com impacto mensurável e participação ativa da comunidade.</p>
+          </article>
+          <article class="cartao col-12 col-md-4">
+            <span class="cartao__icone" aria-hidden="true">🤝</span>
+            <h3>Valores</h3>
+            <ul>
+              <li>Transparência</li>
+              <li>Respeito à diversidade</li>
+              <li>Protagonismo comunitário</li>
+              <li>Compromisso com resultados</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="secao secao--alternada" aria-labelledby="titulo-impacto">
       <div class="container">
-        <h2 id="titulo-impacto">Nosso impacto em números</h2>
-        <dl class="numeros">
-          <div>
+        <h2 id="titulo-impacto" class="secao__titulo">Nosso impacto em números</h2>
+        <dl class="grid mb-0">
+          <div class="numero col-12 col-sm-6 col-lg-3">
             <dt>Crianças atendidas por ano</dt>
             <dd>1.250</dd>
           </div>
-          <div>
+          <div class="numero col-12 col-sm-6 col-lg-3">
             <dt>Cestas básicas distribuídas em 2025</dt>
             <dd>8.400</dd>
           </div>
-          <div>
+          <div class="numero col-12 col-sm-6 col-lg-3">
             <dt>Voluntários ativos</dt>
             <dd>320</dd>
           </div>
-          <div>
+          <div class="numero col-12 col-sm-6 col-lg-3">
             <dt>Jovens formados em informática</dt>
             <dd>640</dd>
           </div>
@@ -102,36 +127,44 @@
       </div>
     </section>
 
-    <section class="container secao" aria-labelledby="titulo-transparencia">
-      <h2 id="titulo-transparencia">Transparência</h2>
-      <p>Publicamos anualmente nosso relatório de atividades e a prestação de contas auditada. Cada real doado é aplicado conforme a distribuição abaixo:</p>
-      <figure class="figura">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Área</th>
-              <th scope="col">Percentual</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Projetos sociais</td><td>82%</td></tr>
-            <tr><td>Administração</td><td>12%</td></tr>
-            <tr><td>Captação de recursos</td><td>6%</td></tr>
-          </tbody>
-        </table>
-        <figcaption>Aplicação dos recursos em 2025. Fonte: Relatório Anual de Atividades 2025 (dados ilustrativos).</figcaption>
-      </figure>
+    <section class="secao" aria-labelledby="titulo-transparencia">
+      <div class="container grid">
+        <div class="col-12 col-md-5">
+          <h2 id="titulo-transparencia">Transparência</h2>
+          <p>Publicamos anualmente nosso relatório de atividades e a prestação de contas auditada. Cada real doado é aplicado conforme a distribuição ao lado.</p>
+          <div class="alerta alerta--sucesso">
+            <span class="alerta__icone" aria-hidden="true">✓</span>
+            <p>82% de cada doação vai diretamente para os projetos sociais.</p>
+          </div>
+        </div>
+        <figure class="figura tabela-rolagem col-12 col-md-7">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Área</th>
+                <th scope="col">Percentual</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Projetos sociais</td><td>82%</td></tr>
+              <tr><td>Administração</td><td>12%</td></tr>
+              <tr><td>Captação de recursos</td><td>6%</td></tr>
+            </tbody>
+          </table>
+          <figcaption>Aplicação dos recursos em 2025. Fonte: Relatório Anual de Atividades 2025 (dados ilustrativos).</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="secao secao--alternada" aria-labelledby="titulo-depoimentos">
       <div class="container">
-        <h2 id="titulo-depoimentos">Depoimentos</h2>
-        <div class="grade grade--2">
-          <blockquote class="depoimento">
+        <h2 id="titulo-depoimentos" class="secao__titulo">Depoimentos</h2>
+        <div class="grid">
+          <blockquote class="depoimento col-12 col-md-6">
             <p>“Meu filho aprendeu a ler no reforço escolar do Instituto. Hoje ele sonha em ser professor.”</p>
             <footer>— Maria, mãe atendida pelo projeto Aprender Juntos</footer>
           </blockquote>
-          <blockquote class="depoimento">
+          <blockquote class="depoimento col-12 col-md-6">
             <p>“Ser voluntária aqui me mostrou que duas horas por semana podem mudar a vida de alguém.”</p>
             <footer>— Juliana, voluntária desde 2021</footer>
           </blockquote>
@@ -141,8 +174,8 @@
   </main>
 
   <footer class="rodape">
-    <div class="container grade grade--3">
-      <section aria-labelledby="rodape-contato">
+    <div class="container grid">
+      <section class="col-12 col-md-4" aria-labelledby="rodape-contato">
         <h2 id="rodape-contato">Contato</h2>
         <address>
           Rua das Sementes, 150 — Centro<br>
@@ -151,11 +184,12 @@
           <a href="mailto:contato@semearfuturo.org.br">contato@semearfuturo.org.br</a>
         </address>
       </section>
-      <section aria-labelledby="rodape-horario">
+      <section class="col-12 col-md-4" aria-labelledby="rodape-horario">
         <h2 id="rodape-horario">Atendimento</h2>
         <p>Segunda a sexta, das <time datetime="08:00">8h</time> às <time datetime="18:00">18h</time>.</p>
+        <p>Doações de alimentos são recebidas na sede no mesmo horário.</p>
       </section>
-      <section aria-labelledby="rodape-navegacao">
+      <section class="col-12 col-md-4" aria-labelledby="rodape-navegacao">
         <h2 id="rodape-navegacao">Navegue</h2>
         <nav aria-label="Navegação do rodapé">
           <ul>
