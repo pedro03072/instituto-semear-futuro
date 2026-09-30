@@ -26,11 +26,13 @@
             <div class="grafico__area">
               <canvas id="grafico-participacao" role="img" aria-labelledby="titulo-grafico" aria-describedby="tabela-grafico"></canvas>
             </div>
-            <table class="sr-only" id="tabela-grafico">
-              <caption>Quantidade de cadastros por tipo de participação</caption>
-              <thead><tr><th scope="col">Tipo</th><th scope="col">Cadastros</th></tr></thead>
-              <tbody></tbody>
-            </table>
+            <div class="sr-only">
+              <table id="tabela-grafico">
+                <caption>Quantidade de cadastros por tipo de participação</caption>
+                <thead><tr><th scope="col">Tipo</th><th scope="col">Cadastros</th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
           </figure>
 
           <div class="barra-filtros">

@@ -100,7 +100,10 @@
     transition: opacity var(--transicao-media), transform var(--transicao-media), visibility var(--transicao-media);
   }
   .menu__item:hover > .submenu,
-  .menu__item:focus-within > .submenu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .menu__item:focus-within > .submenu {
+    opacity: 1; visibility: visible; transform: translateY(0);
+    transition-property: opacity, transform; /* visibilidade muda na hora: o Tab entra no submenu sem atraso */
+  }
 }
 
 /* ---------- Botões ---------- */
@@ -109,12 +112,12 @@
   min-height: 44px; /* área de toque acessível */
   padding: var(--espaco-3) var(--espaco-5);
   font: inherit; font-weight: var(--peso-forte); text-decoration: none; line-height: 1.2;
-  color: var(--cor-neutra-900); background: var(--cor-secundaria-500);
+  color: var(--cor-texto-sobre-amarelo); background: var(--cor-secundaria-500);
   border: 2px solid var(--cor-secundaria-500); border-radius: var(--raio-md);
   cursor: pointer;
   transition: background var(--transicao-rapida), transform var(--transicao-rapida), box-shadow var(--transicao-rapida);
 }
-.botao:hover { background: #e8b23a; color: var(--cor-neutra-900); box-shadow: var(--sombra-md); transform: translateY(-1px); }
+.botao:hover { background: #e8b23a; color: var(--cor-texto-sobre-amarelo); box-shadow: var(--sombra-md); transform: translateY(-1px); }
 .botao:active { transform: translateY(0); box-shadow: none; }
 .botao:disabled, .botao[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
 

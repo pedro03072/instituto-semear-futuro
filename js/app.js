@@ -18,6 +18,7 @@
     .registrar('/painel', { titulo: 'Painel de cadastros', template: ONG.templates.painel, montar: ONG.painel.montar })
     .naoEncontrada({ titulo: 'Página não encontrada', template: ONG.templates.naoEncontrado });
 
+  ONG.tema.iniciar();
   ONG.menu.iniciar();
   ONG.modal.iniciar();
   ONG.router.iniciar(document.getElementById('app'));

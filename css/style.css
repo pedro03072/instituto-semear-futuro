@@ -1,7 +1,7 @@
 /* =========================================================
    Instituto Semear Futuro — folha de estilos principal
    Arquitetura em camadas (da mais genérica à mais específica):
-   01 variáveis → 02 base → 03 layout → 04 componentes → 05 utilitários → 06 aplicação (SPA)
+   01 variáveis → 02 base → 03 layout → 04 componentes → 05 utilitários → 06 aplicação (SPA) → 07 temas
    Nomenclatura de classes: BEM (bloco__elemento--modificador)
    ========================================================= */
 
@@ -11,3 +11,4 @@
 @import url("04-componentes.css");
 @import url("05-utilitarios.css");
 @import url("06-aplicacao.css");
+@import url("07-temas.css");

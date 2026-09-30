@@ -9,6 +9,10 @@
   <link rel="icon" href="../imagens/logo.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="../imagens/logo.png">
   <link rel="stylesheet" href="../css/style.css">
+  <!-- biblioteca externa carregada sob demanda (só no Painel) -->
+  <meta name="chart-js" content="../js/lib/chart.umd.min.js">
+  <!-- tema (escuro / alto contraste): sem defer, aplicado antes da pintura -->
+  <script src="../js/components/tema.js"></script>
 
   <!-- Módulos JavaScript, na ordem de dependência (defer = executam após o HTML) -->
   <!-- core: utilitários, armazenamento e roteador -->
@@ -35,8 +39,6 @@
   <script src="../js/features/projetos.js" defer></script>
   <script src="../js/features/cadastro.js" defer></script>
   <script src="../js/features/painel.js" defer></script>
-  <!-- bibliotecas externas -->
-  <script src="../js/lib/chart.umd.min.js" defer></script>
   <!-- inicialização -->
   <script src="../js/app.js" defer></script>
 </head>
@@ -67,6 +69,16 @@
           <li class="menu__item"><a class="menu__link" href="#/cadastro" data-rota="/cadastro">Seja voluntário</a></li>
           <li class="menu__item"><a class="menu__link" href="#/painel" data-rota="/painel">Painel</a></li>
           <li class="menu__item"><a class="botao botao--pequeno" href="#/cadastro?tipo=doador">Doar agora</a></li>
+          <li class="menu__item">
+            <div class="preferencias" role="group" aria-label="Preferências de exibição">
+            <button type="button" class="botao-tema" data-tema-alvo="escuro" aria-pressed="false">
+              <span class="botao-tema__icone" aria-hidden="true">☾</span><span class="botao-tema__texto">Modo escuro</span>
+            </button>
+            <button type="button" class="botao-tema" data-tema-alvo="alto-contraste" aria-pressed="false">
+              <span class="botao-tema__icone" aria-hidden="true">◐</span><span class="botao-tema__texto">Alto contraste</span>
+            </button>
+            </div>
+          </li>
         </ul>
       </nav>
     </div>
