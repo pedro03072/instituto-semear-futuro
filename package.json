@@ -1,0 +1,18 @@
+{
+  "name": "instituto-semear-futuro",
+  "version": "0.4.0",
+  "description": "Plataforma web (SPA) do Instituto Semear Futuro para divulgação de projetos sociais, cadastro de voluntários e captação de doações.",
+  "private": true,
+  "author": "Pedro Henrique Barcante Santana",
+  "license": "MIT",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "npx --yes http-server . -c-1 -o /html/index.html",
+    "preview": "npm run build && npx --yes http-server dist -c-1 -o"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "html-minifier-terser": "^7.2.0",
+    "svgo": "^3.3.5"
+  }
+}
