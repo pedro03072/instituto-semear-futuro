@@ -12,6 +12,10 @@
 
   // ---------- Gráfico (biblioteca externa Chart.js) ----------
   let grafico = null; // instância atual, destruída antes de redesenhar
+  let renderizarAtual = null; // referência para redesenhar quando o tema mudar
+
+  // Registrado uma única vez (e não a cada visita ao painel), evitando listeners duplicados
+  document.addEventListener('tema:alterado', () => { if (renderizarAtual) renderizarAtual(); });
 
   function cssVar(nome) {
     return getComputedStyle(document.documentElement).getPropertyValue(nome).trim();
@@ -140,6 +144,7 @@
       });
 
       filtroTipo.addEventListener('change', renderizar);
+      renderizarAtual = () => { if (document.body.contains(lista)) renderizar(); };
       busca.addEventListener('input', ONG.dom.debounce(renderizar, 200));
 
       renderizar();

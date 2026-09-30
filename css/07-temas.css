@@ -1,0 +1,120 @@
+/* =========================================================
+   07 · TEMAS — modo escuro e alto contraste (WCAG 2.1 AA)
+   O tema é aplicado com o atributo data-tema no <html>.
+   Como os componentes usam variáveis, basta redefinir os tokens.
+   Todas as combinações de texto/fundo foram conferidas para ≥ 4,5:1.
+   ========================================================= */
+
+/* ---------- Modo escuro ---------- */
+:root[data-tema="escuro"] {
+  color-scheme: dark;
+
+  --cor-primaria-100: #1c3328;
+  --cor-primaria-300: #5e9c78;
+  --cor-primaria-500: #8cc4a2;   /* links e botões primários: 8,9:1 sobre o fundo */
+  --cor-primaria-700: #b8e0c8;   /* títulos */
+  --cor-primaria-900: #e3f0e8;
+
+  --cor-secundaria-100: #3a2f10;
+  --cor-secundaria-700: #f2c14e;
+
+  --cor-neutra-0: #0f1a15;       /* "branco" vira o fundo escuro */
+  --cor-neutra-50: #13211b;
+  --cor-neutra-100: #1c2e25;
+  --cor-neutra-300: #3a5247;
+  --cor-neutra-500: #8fa39a;
+  --cor-neutra-700: #b5c4bc;     /* texto suave: 9,8:1 */
+  --cor-neutra-900: #e6efe9;     /* texto principal: 15,2:1 */
+
+  --cor-sucesso: #7dd69b;  --cor-sucesso-fundo: #10291a;
+  --cor-erro: #ff8a80;     --cor-erro-fundo: #3a1715;
+  --cor-alerta: #f2c14e;   --cor-alerta-fundo: #33280d;
+  --cor-info: #8ab8f0;     --cor-info-fundo: #13263d;
+
+  --cor-fundo-alt: #15241d;
+  --sombra-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+  --sombra-md: 0 4px 12px rgb(0 0 0 / 0.5);
+  --sombra-lg: 0 12px 32px rgb(0 0 0 / 0.6);
+}
+/* No escuro o destaque (hero) e o rodapé ficam escuros com texto claro */
+:root[data-tema="escuro"] .destaque { background: linear-gradient(135deg, #0b1a13, #17372a); color: var(--cor-neutra-900); }
+:root[data-tema="escuro"] .destaque h1,
+:root[data-tema="escuro"] .trilha a { color: var(--cor-neutra-900); }
+:root[data-tema="escuro"] .botao--claro { border-color: var(--cor-neutra-900); color: var(--cor-neutra-900); }
+:root[data-tema="escuro"] .rodape { background: #0a130f; color: var(--cor-neutra-700); }
+:root[data-tema="escuro"] .rodape h2,
+:root[data-tema="escuro"] .rodape a { color: var(--cor-neutra-900); }
+:root[data-tema="escuro"] .pular-conteudo { background: var(--cor-primaria-500); color: var(--cor-neutra-0); }
+
+/* ---------- Alto contraste ---------- */
+:root[data-tema="alto-contraste"] {
+  color-scheme: dark;
+  --cor-fundo: #000000;
+  --cor-fundo-alt: #000000;
+  --cor-texto: #ffffff;
+  --cor-texto-suave: #ffffff;
+  --cor-borda: #ffffff;
+  --cor-link: #ffff00;
+  --cor-foco: #00ffff;
+
+  --cor-primaria-100: #000000;
+  --cor-primaria-500: #ffff00;
+  --cor-primaria-700: #ffffff;
+  --cor-secundaria-100: #000000;
+  --cor-secundaria-500: #ffff00;
+  --cor-secundaria-700: #ffff00;
+  --cor-neutra-0: #000000;
+  --cor-neutra-100: #000000;
+  --cor-neutra-900: #ffffff;
+  --cor-sucesso: #00ff00;  --cor-sucesso-fundo: #000000;
+  --cor-erro: #ff6b6b;     --cor-erro-fundo: #000000;
+  --cor-alerta: #ffff00;   --cor-alerta-fundo: #000000;
+  --cor-info: #00ffff;     --cor-info-fundo: #000000;
+  --sombra-sm: none; --sombra-md: none; --sombra-lg: none;
+  --cor-texto-sobre-amarelo: #000000;
+}
+:root[data-tema="alto-contraste"] body { background: #000; color: #fff; }
+:root[data-tema="alto-contraste"] a { text-decoration: underline; }
+:root[data-tema="alto-contraste"] .destaque,
+:root[data-tema="alto-contraste"] .rodape { background: #000; color: #fff; border-block: 2px solid #fff; }
+:root[data-tema="alto-contraste"] .destaque h1,
+:root[data-tema="alto-contraste"] .rodape h2 { color: #fff; }
+:root[data-tema="alto-contraste"] .rodape a,
+:root[data-tema="alto-contraste"] .trilha a { color: #ffff00; }
+:root[data-tema="alto-contraste"] .cartao,
+:root[data-tema="alto-contraste"] .numero,
+:root[data-tema="alto-contraste"] .depoimento,
+:root[data-tema="alto-contraste"] .alerta,
+:root[data-tema="alto-contraste"] .badge,
+:root[data-tema="alto-contraste"] .modal,
+:root[data-tema="alto-contraste"] .toast { background: #000; border: 2px solid currentColor; }
+:root[data-tema="alto-contraste"] .badge { color: #fff; }
+:root[data-tema="alto-contraste"] .toast { color: #fff; }
+:root[data-tema="alto-contraste"] .botao--claro,
+:root[data-tema="alto-contraste"] .botao--contorno { color: #ffff00; border-color: #ffff00; background: #000; }
+:root[data-tema="alto-contraste"] .botao--perigo { background: #000; color: #ff6b6b; border-color: #ff6b6b; }
+:root[data-tema="alto-contraste"] .menu__link[aria-current="page"] { background: #ffff00; color: #000; }
+:root[data-tema="alto-contraste"] .filtro[aria-pressed="true"] { background: #ffff00; color: #000; }
+:root[data-tema="alto-contraste"] img { filter: grayscale(1) contrast(1.2); }
+:root[data-tema="alto-contraste"] :focus-visible { outline: 3px solid #00ffff; outline-offset: 3px; }
+
+/* ---------- Botões de preferência de tema ---------- */
+.preferencias { display: flex; gap: var(--espaco-2); }
+.botao-tema {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--espaco-2);
+  min-width: 44px; min-height: 44px; padding: var(--espaco-2) var(--espaco-3);
+  font: inherit; font-size: var(--texto-sm); font-weight: var(--peso-medio);
+  color: var(--cor-primaria-700); background: transparent;
+  border: 1px solid var(--cor-borda); border-radius: var(--raio-md); cursor: pointer;
+}
+.botao-tema:hover { background: var(--cor-fundo-alt); }
+.botao-tema[aria-pressed="true"] { background: var(--cor-primaria-700); color: var(--cor-neutra-0); border-color: var(--cor-primaria-700); }
+.botao-tema__icone { font-size: var(--texto-md); line-height: 1; }
+
+/* A partir do tablet os botões ficam só com ícone; o nome continua acessível (sr-only) */
+@media (min-width: 768px) {
+  .botao-tema__texto {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+}

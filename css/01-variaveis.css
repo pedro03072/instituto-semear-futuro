@@ -45,6 +45,7 @@
   --cor-borda: var(--cor-neutra-300);
   --cor-link: var(--cor-primaria-500);
   --cor-foco: var(--cor-secundaria-500);
+  --cor-texto-sobre-amarelo: #1d2a24; /* texto dos botões amarelos: igual em todos os temas */
 
   /* ---------- Tipografia ---------- */
   --fonte-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
