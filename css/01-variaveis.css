@@ -16,7 +16,7 @@
   /* Secundária (amarelo de destaque / chamadas para ação) */
   --cor-secundaria-100: #fdf3d8;
   --cor-secundaria-500: #f2c14e;
-  --cor-secundaria-700: #b8861b;
+  --cor-secundaria-700: #8a5a00; /* ajustado para contraste AA (5,36:1 sobre o fundo do badge) */
 
   /* Neutras */
   --cor-neutra-0: #ffffff;
