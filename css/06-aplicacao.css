@@ -5,6 +5,9 @@
 
 /* ---------- Transição entre vistas ---------- */
 .vista:focus { outline: none; }
+/* Performance (CLS): reserva a altura da área principal para o rodapé não "pular"
+   quando o JavaScript injeta a primeira vista */
+.vista { display: block; min-height: 100vh; }
 .vista--entrando { animation: vista-entrada var(--transicao-media) ease-out; }
 @keyframes vista-entrada {
   from { opacity: 0; transform: translateY(8px); }
@@ -100,3 +103,4 @@ h1[tabindex="-1"]:focus { outline: none; }
 .grafico { margin: 0; }
 .grafico figcaption { display: flex; flex-direction: column; gap: var(--espaco-1); }
 .grafico__area { position: relative; height: 200px; }
+
