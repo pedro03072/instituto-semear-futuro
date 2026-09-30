@@ -10,6 +10,7 @@
   const rotas = [];
   let rotaNaoEncontrada = null;
   let saida = null; // elemento onde as vistas são renderizadas
+  let primeiraRenderizacao = true;
 
   /** Converte "#/projetos/mesa-cheia?filtro=x" em { caminho, query } */
   function lerHash() {
@@ -67,9 +68,14 @@
     atualizarMenu(caminho);
     window.scrollTo(0, 0);
 
-    // Acessibilidade: leva o foco ao título da nova vista (leitores de tela anunciam a troca)
+    // Acessibilidade: ao TROCAR de vista, leva o foco ao título (leitores de tela anunciam a troca).
+    // No carregamento inicial o foco fica no topo, para o Tab começar pelo link "Pular" e pelo menu.
     const h1 = ONG.dom.$('h1', saida);
-    if (h1) { h1.setAttribute('tabindex', '-1'); h1.focus({ preventScroll: true }); }
+    if (h1) {
+      h1.setAttribute('tabindex', '-1');
+      if (!primeiraRenderizacao) h1.focus({ preventScroll: true });
+    }
+    primeiraRenderizacao = false;
 
     if (typeof encontrada.montar === 'function') encontrada.montar(contexto);
 

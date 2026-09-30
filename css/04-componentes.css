@@ -100,7 +100,10 @@
     transition: opacity var(--transicao-media), transform var(--transicao-media), visibility var(--transicao-media);
   }
   .menu__item:hover > .submenu,
-  .menu__item:focus-within > .submenu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .menu__item:focus-within > .submenu {
+    opacity: 1; visibility: visible; transform: translateY(0);
+    transition-property: opacity, transform; /* visibilidade muda na hora: o Tab entra no submenu sem atraso */
+  }
 }
 
 /* ---------- Botões ---------- */
